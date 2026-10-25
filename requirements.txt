@@ -1,0 +1,41 @@
+# LangChain core and LCEL Runnable components
+langchain-core
+langchain
+langchain-community
+
+# Groq LLM integration
+langchain-groq
+groq
+
+# Multi-agent orchestration and ReAct agents
+langgraph
+
+# Tavily web search tool
+tavily-python
+
+# Web scraping using BeautifulSoup
+beautifulsoup4
+requests
+lxml
+
+# Environment variables for API keys
+python-dotenv
+
+# Async HTTP requests
+httpx
+aiohttp
+
+# URL parsing and validation
+validators
+
+# Data validation and structured agent outputs
+pydantic
+
+# Retry handling and robust API calls
+tenacity
+
+# for proper print
+rich
+
+# for web app
+flask

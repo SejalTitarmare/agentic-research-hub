@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <aside class="track">
+      <h1>Research Desk</h1>
+      <p class="tagline">Four agents pass your topic down the line and hand back a reviewed report.</p>
+
+      <ol class="relay" id="relay">
+        <li data-step="1">
+          <span class="node"></span>
+          <div><strong>Search agent</strong><small>Finds recent, reliable sources</small><em class="state">Waiting</em></div>
+        </li>
+        <li data-step="2">
+          <span class="node"></span>
+          <div><strong>Reader agent</strong><small>Scrapes the best source in depth</small><em class="state">Waiting</em></div>
+        </li>
+        <li data-step="3">
+          <span class="node"></span>
+          <div><strong>Writer</strong><small>Drafts the research report</small><em class="state">Waiting</em></div>
+        </li>
+        <li data-step="4">
+          <span class="node"></span>
+          <div><strong>Critic</strong><small>Reviews the report and gives feedback</small><em class="state">Waiting</em></div>
+        </li>
+      </ol>
+    </aside>
+
+    <main>
+      <form id="form" autocomplete="off">
+        <label for="topic">What should the agents research?</label>
+        <div class="ask">
+          <input id="topic" name="topic" type="text" required maxlength="300"
+                 placeholder="e.g. Solid-state batteries for electric vehicles">
+          <button id="go" type="submit">Start research</button>
+        </div>
+      </form>
+
+      <div id="banner" class="banner" role="alert" hidden></div>
+
+      <div id="empty" class="empty">
+        <p>Your report will appear here.</p>
+        <p>Enter a topic above. Each agent's output is saved in its own tab as soon as it finishes, so you can read the sources while the report is still being written.</p>
+      </div>
+
+      <section id="out" class="out" hidden>
+        <div class="bar">
+          <div class="tabs" role="tablist" aria-label="Agent outputs">
+            <button role="tab" id="tab-report" data-key="report" aria-controls="pane-report" disabled>Report</button>
+            <button role="tab" id="tab-feedback" data-key="feedback" aria-controls="pane-feedback" disabled>Critic feedback</button>
+            <button role="tab" id="tab-search_results" data-key="search_results" aria-controls="pane-search_results" disabled>Search results</button>
+            <button role="tab" id="tab-scraped_content" data-key="scraped_content" aria-controls="pane-scraped_content" disabled>Scraped content</button>
+          </div>
+          <div class="actions">
+            <button type="button" id="copy" class="ghost">Copy</button>
+            <button type="button" id="download" class="ghost">Download .md</button>
+          </div>
+        </div>
+
+        <article class="prose" id="pane-report" role="tabpanel" aria-labelledby="tab-report" hidden></article>
+        <article class="prose" id="pane-feedback" role="tabpanel" aria-labelledby="tab-feedback" hidden></article>
+        <article class="prose" id="pane-search_results" role="tabpanel" aria-labelledby="tab-search_results" hidden></article>
+        <article class="prose" id="pane-scraped_content" role="tabpanel" aria-labelledby="tab-scraped_content" hidden></article>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
