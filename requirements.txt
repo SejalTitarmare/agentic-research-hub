@@ -39,3 +39,6 @@ rich
 
 # for web app
 flask
+
+# for deployment 
+gunicorn
